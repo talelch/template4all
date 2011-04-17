@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+		<title>Template Sample App</title>
+	</head>
+
+	<body>
+		<h:form id="form">
+			<rich:panel width="400px">
+				<f:facet name="header">
+      				  Add/Save User details.
+        		</f:facet>
+				<h:commandButton value="Add" action="#{userBean.add}" />
+				<rich:spacer height="5px" />
+				<h:commandButton value="Save" action="#{userBean.save}" />
+				<rich:spacer height="10px" />
+				<rich:dataTable binding="#{userBean.dataTable}"
+					value="#{userBean.users}" var="user"
+					onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
+					onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'"
+					cellpadding="0" cellspacing="0">
+
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="name" />
+						</f:facet>
+						<h:inputText value="#{user.name}" required="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="email" />
+						</f:facet>
+						<h:inputText value="#{user.email}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="preferred color" />
+						</f:facet>
+						<h:selectOneMenu value="#{user.preference.color}">
+							<f:selectItem itemLabel="red" itemValue="red" />
+							<f:selectItem itemLabel="green" itemValue="green" />
+							<f:selectItem itemLabel="blue" itemValue="blue" />
+						</h:selectOneMenu>
+					</h:column>
+
+				</rich:dataTable>
+			</rich:panel>
+		</h:form>
+	</body>
+</html>
