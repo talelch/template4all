@@ -1,0 +1,40 @@
+<!-- Rename as template-ds.xml and drop in deploy folder of JBoss -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+    <xa-datasource>
+        <jndi-name>template4all</jndi-name>
+        <rar-name>jboss-xa-jdbc.rar</rar-name>
+        <use-java-context>false</use-java-context>
+        <connection-definition>javax.sql.DataSource</connection-definition>
+        <jmx-invoker-name>jboss:service=invoker,type=jrmp</jmx-invoker-name>
+        <min-pool-size>0</min-pool-size>
+        <max-pool-size>8</max-pool-size>
+        <blocking-timeout-millis>30000</blocking-timeout-millis>
+        <idle-timeout-minutes>30</idle-timeout-minutes>
+        <prefill>false</prefill>
+        <background-validation>false</background-validation>
+        <background-validation-millis>0</background-validation-millis>
+        <validate-on-match>true</validate-on-match>
+        <statistics-formatter>org.jboss.resource.statistic.pool.JBossDefaultSubPoolStatisticFormatter</statistics-formatter>
+        <isSameRM-override-value>false</isSameRM-override-value>
+        <allocation-retry>0</allocation-retry>
+        <allocation-retry-wait-millis>5000</allocation-retry-wait-millis>
+        <security-domain xsi:type="securityMetaData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <prepared-statement-cache-size>0</prepared-statement-cache-size>
+        <share-prepared-statements>false</share-prepared-statements>
+        <set-tx-query-timeout>false</set-tx-query-timeout>
+        <query-timeout>0</query-timeout>
+        <url-delimiter>|</url-delimiter>
+        <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+		<type-mapping>mySQL</type-mapping>
+        <xa-datasource-property name="User">root</xa-datasource-property>
+		<xa-datasource-property name="Password">root</xa-datasource-property>
+		<xa-datasource-property name="URL">jdbc:mysql://localhost:3306/template4all</xa-datasource-property>
+		<xa-datasource-property name="DatabaseName">template4all</xa-datasource-property>
+        <xa-datasource-property name="Port">3306</xa-datasource-property>
+        <xa-resource-timeout>0</xa-resource-timeout>
+        <no-recover>false</no-recover>
+    </xa-datasource>
+</datasources>
+
